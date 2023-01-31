@@ -2,23 +2,31 @@ import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final String title;
+  final Color color;
+  final VoidCallback onPress;
 
-  const MyButton({super.key, required this.title});
+  const MyButton({
+    super.key,
+    required this.title,
+    this.color = const Color(0xffa5a5a5),
+    required this.onPress,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
-        child: Container(
-          height: 60,
-          decoration: const BoxDecoration(
-            color: Colors.green,
-            shape: BoxShape.circle,
+        child: InkWell(
+          onTap: onPress,
+          child: Container(
+            height: 60,
+            decoration: const BoxDecoration(
+                shape: BoxShape.circle, color: Color(0xffa5a5a5)),
+            child: Center(
+                child: Text(title,
+                    style: const TextStyle(fontSize: 16, color: Colors.white))),
           ),
-          child: Center(
-              child: Text(title,
-                  style: TextStyle(fontSize: 16, color: Colors.white))),
         ),
       ),
     );
