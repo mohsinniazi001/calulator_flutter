@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatefulWidget {
-  const MyButton({super.key});
+class MyButton extends StatelessWidget {
+  final String title;
 
-  @override
-  State<MyButton> createState() => _MyButtonState();
-}
+  const MyButton({super.key, required this.title});
 
-class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10.0),
+        child: Container(
+          height: 60,
+          decoration: const BoxDecoration(
+            color: Colors.green,
+            shape: BoxShape.circle,
+          ),
+          child: Center(
+              child: Text(title,
+                  style: TextStyle(fontSize: 16, color: Colors.white))),
+        ),
+      ),
+    );
   }
 }
