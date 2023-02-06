@@ -11,83 +11,180 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var getinput = '';
-  var getresult;
+  var getresult = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Column(
-                children: [
-                  Text(
-                    getinput.toString(),
-                    style: const TextStyle(fontSize: 30, color: Colors.white),
-                  ),
-                  Text(
-                    getresult.toString(),
-                    style: const TextStyle(fontSize: 30, color: Colors.white),
-                  ),
-                ],
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Column(
+                  children: [
+                    Text(
+                      getinput.toString(),
+                      style: const TextStyle(fontSize: 30, color: Colors.white),
+                    ),
+                    Text(
+                      getresult.toString(),
+                      style: const TextStyle(fontSize: 30, color: Colors.white),
+                    ),
+                  ],
+                ),
               ),
             ),
             Expanded(
+              flex: 2,
               child: Column(
                 children: [
                   Row(
                     children: [
                       MyButton(
                         title: 'AC',
-                        onPress: () {},
+                        onPress: () {
+                          getinput = '';
+                          getresult = '';
+                          setState(() {});
+                        },
                       ),
-                      MyButton(title: '+/-', onPress: () {}),
-                      MyButton(title: '%', onPress: () {}),
-                      MyButton(title: '/', onPress: () {}),
+                      MyButton(
+                          title: '+/-',
+                          onPress: () {
+                            getinput += '+/-';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '%',
+                          onPress: () {
+                            getinput += '%';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '/',
+                          onPress: () {
+                            getinput += '/';
+                            setState(() {});
+                          }),
                     ],
                   ),
                   Row(
                     children: [
-                      MyButton(title: '7', onPress: () {}),
-                      MyButton(title: '8', onPress: () {}),
-                      MyButton(title: '9', onPress: () {}),
-                      MyButton(title: '*', onPress: () {}),
+                      MyButton(
+                          title: '7',
+                          onPress: () {
+                            getinput += '7';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '8',
+                          onPress: () {
+                            getinput += '8';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '9',
+                          onPress: () {
+                            getinput += '9';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '*',
+                          onPress: () {
+                            getinput += '*';
+                            setState(() {});
+                          }),
                     ],
                   ),
                   Row(
                     children: [
                       MyButton(
                         title: '4',
-                        onPress: () {},
+                        onPress: () {
+                          getinput += '4';
+                          setState(() {});
+                        },
                       ),
                       MyButton(
                         title: '5',
-                        onPress: () {},
+                        onPress: () {
+                          getinput += '5';
+                          setState(() {});
+                        },
                       ),
                       MyButton(
                         title: '6',
-                        onPress: () {},
+                        onPress: () {
+                          getinput += '6';
+                          setState(() {});
+                        },
                       ),
-                      MyButton(title: '-', onPress: () {}),
+                      MyButton(
+                          title: '-',
+                          onPress: () {
+                            getinput += '-';
+                            setState(() {});
+                          }),
                     ],
                   ),
                   Row(
                     children: [
-                      MyButton(title: '1', onPress: () {}),
-                      MyButton(title: '2', onPress: () {}),
-                      MyButton(title: '3', onPress: () {}),
-                      MyButton(title: '+', onPress: () {}),
+                      MyButton(
+                          title: '1',
+                          onPress: () {
+                            getinput += '1';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '2',
+                          onPress: () {
+                            getinput += '2';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '3',
+                          onPress: () {
+                            getinput += '3';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '+',
+                          onPress: () {
+                            getinput += '+';
+                            setState(() {});
+                          }),
                     ],
                   ),
                   Row(
                     children: [
-                      MyButton(title: '0', onPress: () {}),
-                      MyButton(title: '.', onPress: () {}),
-                      MyButton(title: 'Del', onPress: () {}),
-                      MyButton(title: '=', onPress: () {}),
+                      MyButton(
+                          title: '0',
+                          onPress: () {
+                            getinput += '0';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '.',
+                          onPress: () {
+                            getinput += '.';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: 'Del',
+                          onPress: () {
+                            getinput += 'Del';
+                            setState(() {});
+                          }),
+                      MyButton(
+                          title: '=',
+                          onPress: () {
+                            getinput += '=';
+                            setState(() {});
+                          }),
                     ],
                   ),
                 ],
