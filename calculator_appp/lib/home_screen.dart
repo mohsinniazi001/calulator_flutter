@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 import 'components/my_button.dart';
 
@@ -25,7 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const Padding(
+                      padding: EdgeInsets.all(20.0),
+                      child: Text(
+                        'Calculator App',
+                        style: TextStyle(fontSize: 30, color: Colors.white),
+                      ),
+                    ),
                     Text(
                       getinput.toString(),
                       style: const TextStyle(fontSize: 30, color: Colors.white),
@@ -176,13 +186,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       MyButton(
                           title: 'Del',
                           onPress: () {
-                            getinput += 'Del';
+                            getinput =
+                                getinput.substring(0, getinput.length - 1);
                             setState(() {});
                           }),
                       MyButton(
                           title: '=',
                           onPress: () {
-                            getinput += '=';
+                            equalPress();
                             setState(() {});
                           }),
                     ],
@@ -194,5 +205,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       )),
     );
+  }
+
+  void equalPress() {
+    Parser p = Parser();
+    Expression expression = p.parse(getinput.toString());
+    ContextModel contextModel = ContextModel();
+    double eval = expression.evaluate(EvaluationType.REAL, contextModel);
+
+    getresult = eval.toString();
   }
 }

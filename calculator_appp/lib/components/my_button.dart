@@ -20,12 +20,12 @@ class MyButton extends StatelessWidget {
         child: InkWell(
           onTap: onPress,
           child: Container(
-            height: 60,
+            height: 65,
             decoration: const BoxDecoration(
                 shape: BoxShape.circle, color: Color(0xffa5a5a5)),
             child: Center(
                 child: Text(title,
-                    style: const TextStyle(fontSize: 16, color: Colors.white))),
+                    style: const TextStyle(fontSize: 18, color: Colors.white))),
           ),
         ),
       ),
